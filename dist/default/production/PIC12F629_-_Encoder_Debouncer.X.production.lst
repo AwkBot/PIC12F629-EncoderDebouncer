@@ -1,0 +1,598 @@
+
+
+Microchip MPLAB XC8 Assembler V2.32 build 20210201212658 
+                                                                                               Fri Jun 25 10:18:36 2021
+
+Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og9 
+     1                           	processor	12F629
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	strings,global,class=STRING,delta=2,noexec
+     5                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     6                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1,noexec
+     7                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+     8                           	psect	maintext,global,class=CODE,split=1,delta=2
+     9                           	psect	text1,local,class=CODE,merge=1,delta=2
+    10                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    11                           	dabs	1,0x5E,2
+    12  0000                     
+    13                           ; Version 2.32
+    14                           ; Generated 23/11/2020 GMT
+    15                           ; 
+    16                           ; Copyright © 2020, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    17                           ; All rights reserved.
+    18                           ; 
+    19                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    20                           ; 
+    21                           ; Redistribution and use in source and binary forms, with or without modification, are
+    22                           ; permitted provided that the following conditions are met:
+    23                           ; 
+    24                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    25                           ;        conditions and the following disclaimer.
+    26                           ; 
+    27                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    28                           ;        of conditions and the following disclaimer in the documentation and/or other
+    29                           ;        materials provided with the distribution. Publication is not required when
+    30                           ;        this file is used in an embedded application.
+    31                           ; 
+    32                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    33                           ;        software without specific prior written permission.
+    34                           ; 
+    35                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    36                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    37                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    38                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    39                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    40                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    41                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    42                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    43                           ; 
+    44                           ; 
+    45                           ; Code-generator required, PIC12F629 Definitions
+    46                           ; 
+    47                           ; SFR Addresses
+    48  0000                     	;# 
+    49  0001                     	;# 
+    50  0002                     	;# 
+    51  0003                     	;# 
+    52  0004                     	;# 
+    53  0005                     	;# 
+    54  000A                     	;# 
+    55  000B                     	;# 
+    56  000C                     	;# 
+    57  000E                     	;# 
+    58  000E                     	;# 
+    59  000F                     	;# 
+    60  0010                     	;# 
+    61  0019                     	;# 
+    62  0081                     	;# 
+    63  0085                     	;# 
+    64  008C                     	;# 
+    65  008E                     	;# 
+    66  0090                     	;# 
+    67  0095                     	;# 
+    68  0096                     	;# 
+    69  0096                     	;# 
+    70  0099                     	;# 
+    71  009A                     	;# 
+    72  009A                     	;# 
+    73  009B                     	;# 
+    74  009C                     	;# 
+    75  009D                     	;# 
+    76  0000                     	;# 
+    77  0001                     	;# 
+    78  0002                     	;# 
+    79  0003                     	;# 
+    80  0004                     	;# 
+    81  0005                     	;# 
+    82  000A                     	;# 
+    83  000B                     	;# 
+    84  000C                     	;# 
+    85  000E                     	;# 
+    86  000E                     	;# 
+    87  000F                     	;# 
+    88  0010                     	;# 
+    89  0019                     	;# 
+    90  0081                     	;# 
+    91  0085                     	;# 
+    92  008C                     	;# 
+    93  008E                     	;# 
+    94  0090                     	;# 
+    95  0095                     	;# 
+    96  0096                     	;# 
+    97  0096                     	;# 
+    98  0099                     	;# 
+    99  009A                     	;# 
+   100  009A                     	;# 
+   101  009B                     	;# 
+   102  009C                     	;# 
+   103  009D                     	;# 
+   104  0000                     	;# 
+   105  0001                     	;# 
+   106  0002                     	;# 
+   107  0003                     	;# 
+   108  0004                     	;# 
+   109  0005                     	;# 
+   110  000A                     	;# 
+   111  000B                     	;# 
+   112  000C                     	;# 
+   113  000E                     	;# 
+   114  000E                     	;# 
+   115  000F                     	;# 
+   116  0010                     	;# 
+   117  0019                     	;# 
+   118  0081                     	;# 
+   119  0085                     	;# 
+   120  008C                     	;# 
+   121  008E                     	;# 
+   122  0090                     	;# 
+   123  0095                     	;# 
+   124  0096                     	;# 
+   125  0096                     	;# 
+   126  0099                     	;# 
+   127  009A                     	;# 
+   128  009A                     	;# 
+   129  009B                     	;# 
+   130  009C                     	;# 
+   131  009D                     	;# 
+   132                           
+   133                           	psect	strings
+   134  0001                     __pstrings:
+   135  0001                     stringtab:
+   136  0001                     __stringtab:
+   137  0001                     stringcode:	
+   138                           ;	String table - string pointers are 1 byte each
+   139                           
+   140  0001                     stringdir:
+   141  0001  3000               	movlw	high stringdir
+   142  0002  008A               	movwf	10
+   143  0003  0804               	movf	4,w
+   144  0004  0A84               	incf	4,f
+   145  0005  0782               	addwf	2,f
+   146  0006                     __stringbase:
+   147  0006  3400               	retlw	0
+   148  0007                     __end_of__stringtab:
+   149  0007                     _enc_states:
+   150  0007  3400               	retlw	0
+   151  0008  34FF               	retlw	-1
+   152  0009  3401               	retlw	1
+   153  000A  3400               	retlw	0
+   154  000B  3401               	retlw	1
+   155  000C  3400               	retlw	0
+   156  000D  3400               	retlw	0
+   157  000E  34FF               	retlw	-1
+   158  000F  34FF               	retlw	-1
+   159  0010  3400               	retlw	0
+   160  0011  3400               	retlw	0
+   161  0012  3401               	retlw	1
+   162  0013  3400               	retlw	0
+   163  0014  3401               	retlw	1
+   164  0015  34FF               	retlw	-1
+   165  0016  3400               	retlw	0
+   166  0017                     __end_of_enc_states:
+   167  000B                     _INTCON	set	11
+   168  0019                     _CMCON	set	25
+   169  002C                     _GP4	set	44
+   170  002D                     _GP5	set	45
+   171  0029                     _GP1	set	41
+   172  0028                     _GP0	set	40
+   173  042D                     _TRISIO5	set	1069
+   174  042C                     _TRISIO4	set	1068
+   175  04AD                     _WPU5	set	1197
+   176  04AC                     _WPU4	set	1196
+   177  0429                     _TRISIO1	set	1065
+   178  0428                     _TRISIO0	set	1064
+   179                           
+   180                           	psect	cinit
+   181  03FB                     start_initialization:	
+   182                           ; #config settings
+   183                           
+   184  03FB                     __initialization:
+   185                           
+   186                           ; Clear objects allocated to BANK0
+   187  03FB  1283               	bcf	3,5	;RP0=0, select bank0
+   188  03FC  01A6               	clrf	__pbssBANK0& (0+127)
+   189  03FD                     end_of_initialization:	
+   190                           ;End of C runtime variable initialization code
+   191                           
+   192  03FD                     __end_of__initialization:
+   193  03FD  0183               	clrf	3
+   194  03FE  2BBA               	ljmp	_main	;jump to C main() function
+   195                           
+   196                           	psect	bssBANK0
+   197  0026                     __pbssBANK0:
+   198  0026                     _old_AB:
+   199  0026                     	ds	1
+   200                           
+   201                           	psect	cstackBANK0
+   202  0020                     __pcstackBANK0:
+   203  0020                     ?_read_encoder:
+   204  0020                     ??_read_encoder:	
+   205                           ; 1 bytes @ 0x0
+   206                           
+   207  0020                     ?_main:	
+   208                           ; 1 bytes @ 0x0
+   209                           
+   210                           
+   211                           ; 1 bytes @ 0x0
+   212  0020                     	ds	1
+   213  0021                     read_encoder@tmpValue:
+   214                           
+   215                           ; 1 bytes @ 0x1
+   216  0021                     	ds	1
+   217  0022                     ??_main:
+   218                           
+   219                           ; 1 bytes @ 0x2
+   220  0022                     	ds	2
+   221  0024                     main@tmpEncValue:
+   222                           
+   223                           ; 1 bytes @ 0x4
+   224  0024                     	ds	1
+   225  0025                     main@counter:
+   226                           
+   227                           ; 1 bytes @ 0x5
+   228  0025                     	ds	1
+   229                           
+   230                           	psect	maintext
+   231  03BA                     __pmaintext:	
+   232 ;;
+   233 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
+   234 ;;
+   235 ;; *************** function _main *****************
+   236 ;; Defined at:
+   237 ;;		line 29 in file "src/main.c"
+   238 ;; Parameters:    Size  Location     Type
+   239 ;;		None
+   240 ;; Auto vars:     Size  Location     Type
+   241 ;;  counter         1    5[BANK0 ] char 
+   242 ;;  tmpEncValue     1    4[BANK0 ] char 
+   243 ;; Return value:  Size  Location     Type
+   244 ;;                  1    wreg      void 
+   245 ;; Registers used:
+   246 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   247 ;; Tracked objects:
+   248 ;;		On entry : B00/0
+   249 ;;		On exit  : 0/0
+   250 ;;		Unchanged: 0/0
+   251 ;; Data sizes:     COMMON   BANK0
+   252 ;;      Params:         0       0
+   253 ;;      Locals:         0       2
+   254 ;;      Temps:          0       2
+   255 ;;      Totals:         0       4
+   256 ;;Total ram usage:        4 bytes
+   257 ;; Hardware stack levels required when called: 2
+   258 ;; This function calls:
+   259 ;;		_read_encoder
+   260 ;; This function is called by:
+   261 ;;		Startup code after reset
+   262 ;; This function uses a non-reentrant model
+   263 ;;
+   264                           
+   265                           
+   266                           ;psect for function _main
+   267  03BA                     _main:
+   268                           
+   269                           ;src/main.c: 30:   int8_t tmpEncValue;;src/main.c: 31:   int8_t counter = 0x00;
+   270                           
+   271                           ;incstack = 0
+   272                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   273  03BA  01A5               	clrf	main@counter
+   274                           
+   275                           ;src/main.c: 34:   CMCON = 0x07;
+   276  03BB  3007               	movlw	7
+   277  03BC  0099               	movwf	25	;volatile
+   278                           
+   279                           ;src/main.c: 35:   INTCON = 0x00;
+   280  03BD  018B               	clrf	11	;volatile
+   281                           
+   282                           ;src/main.c: 38:   TRISIO0 = 0;
+   283  03BE  1683               	bsf	3,5	;RP0=1, select bank1
+   284  03BF  1005               	bcf	5,0	;volatile
+   285                           
+   286                           ;src/main.c: 39:   TRISIO1 = 0;
+   287  03C0  1085               	bcf	5,1	;volatile
+   288                           
+   289                           ;src/main.c: 40:   WPU4 = 1;
+   290  03C1  1615               	bsf	21,4	;volatile
+   291                           
+   292                           ;src/main.c: 41:   WPU5 = 1;
+   293  03C2  1695               	bsf	21,5	;volatile
+   294                           
+   295                           ;src/main.c: 42:   TRISIO4 = 1;
+   296  03C3  1605               	bsf	5,4	;volatile
+   297                           
+   298                           ;src/main.c: 43:   TRISIO5 = 1;
+   299  03C4  1685               	bsf	5,5	;volatile
+   300                           
+   301                           ;src/main.c: 46:   GP0 = 1;
+   302  03C5  1283               	bcf	3,5	;RP0=0, select bank0
+   303  03C6  1405               	bsf	5,0	;volatile
+   304                           
+   305                           ;src/main.c: 47:   GP1 = 1;
+   306  03C7  1485               	bsf	5,1	;volatile
+   307  03C8                     l744:
+   308                           
+   309                           ;src/main.c: 52:     tmpEncValue = read_encoder();
+   310  03C8  23A2               	fcall	_read_encoder
+   311  03C9  00A2               	movwf	??_main
+   312  03CA  0822               	movf	??_main,w
+   313  03CB  00A4               	movwf	main@tmpEncValue
+   314                           
+   315                           ;src/main.c: 53:     counter -= tmpEncValue;
+   316  03CC  0824               	movf	main@tmpEncValue,w
+   317  03CD  02A5               	subwf	main@counter,f
+   318                           
+   319                           ;src/main.c: 56:     if(((counter % 4) == 0) && (tmpEncValue != 0)) {
+   320  03CE  0825               	movf	main@counter,w
+   321  03CF  3903               	andlw	3
+   322  03D0  1D03               	btfss	3,2
+   323  03D1  2BF1               	goto	l766
+   324  03D2  0824               	movf	main@tmpEncValue,w
+   325  03D3  1903               	btfsc	3,2
+   326  03D4  2BF1               	goto	l766
+   327                           
+   328                           ;src/main.c: 58:       if(counter < 0) {
+   329  03D5  1FA5               	btfss	main@counter,7
+   330  03D6  2BE4               	goto	l31
+   331                           
+   332                           ;src/main.c: 59:         GP0 = 0;
+   333  03D7  1005               	bcf	5,0	;volatile
+   334                           
+   335                           ;src/main.c: 60:         _delay((unsigned long)((2)*(4000000/4000.0)));
+   336  03D8  3003               	movlw	3
+   337  03D9  00A3               	movwf	??_main+1
+   338  03DA  3097               	movlw	151
+   339  03DB  00A2               	movwf	??_main
+   340  03DC                     u117:
+   341  03DC  0BA2               	decfsz	??_main,f
+   342  03DD  2BDC               	goto	u117
+   343  03DE  0BA3               	decfsz	??_main+1,f
+   344  03DF  2BDC               	goto	u117
+   345  03E0  2BE1               	nop2
+   346                           
+   347                           ;src/main.c: 61:         GP0 = 1;
+   348  03E1  1283               	bcf	3,5	;RP0=0, select bank0
+   349  03E2  1405               	bsf	5,0	;volatile
+   350                           
+   351                           ;src/main.c: 62:       }
+   352  03E3  2BF0               	goto	l764
+   353  03E4                     l31:	
+   354                           ;src/main.c: 64:       else {
+   355                           
+   356                           
+   357                           ;src/main.c: 65:         GP1 = 0;
+   358  03E4  1085               	bcf	5,1	;volatile
+   359                           
+   360                           ;src/main.c: 66:         _delay((unsigned long)((2)*(4000000/4000.0)));
+   361  03E5  3003               	movlw	3
+   362  03E6  00A3               	movwf	??_main+1
+   363  03E7  3097               	movlw	151
+   364  03E8  00A2               	movwf	??_main
+   365  03E9                     u127:
+   366  03E9  0BA2               	decfsz	??_main,f
+   367  03EA  2BE9               	goto	u127
+   368  03EB  0BA3               	decfsz	??_main+1,f
+   369  03EC  2BE9               	goto	u127
+   370  03ED  2BEE               	nop2
+   371                           
+   372                           ;src/main.c: 67:         GP1 = 1;
+   373  03EE  1283               	bcf	3,5	;RP0=0, select bank0
+   374  03EF  1485               	bsf	5,1	;volatile
+   375  03F0                     l764:
+   376                           
+   377                           ;src/main.c: 71:       counter = 0;
+   378  03F0  01A5               	clrf	main@counter
+   379  03F1                     l766:
+   380                           
+   381                           ;src/main.c: 73:     _delay((unsigned long)((2)*(4000000/4000.0)));
+   382  03F1  3003               	movlw	3
+   383  03F2  00A3               	movwf	??_main+1
+   384  03F3  3097               	movlw	151
+   385  03F4  00A2               	movwf	??_main
+   386  03F5                     u137:
+   387  03F5  0BA2               	decfsz	??_main,f
+   388  03F6  2BF5               	goto	u137
+   389  03F7  0BA3               	decfsz	??_main+1,f
+   390  03F8  2BF5               	goto	u137
+   391  03F9  2BFA               	nop2
+   392  03FA  2BC8               	goto	l744
+   393  03FB                     __end_of_main:
+   394                           
+   395                           	psect	text1
+   396  03A2                     __ptext1:	
+   397 ;; *************** function _read_encoder *****************
+   398 ;; Defined at:
+   399 ;;		line 14 in file "src/encoder.c"
+   400 ;; Parameters:    Size  Location     Type
+   401 ;;		None
+   402 ;; Auto vars:     Size  Location     Type
+   403 ;;  tmpValue        1    1[BANK0 ] unsigned char 
+   404 ;; Return value:  Size  Location     Type
+   405 ;;                  1    wreg      char 
+   406 ;; Registers used:
+   407 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath
+   408 ;; Tracked objects:
+   409 ;;		On entry : 0/0
+   410 ;;		On exit  : 100/0
+   411 ;;		Unchanged: 0/0
+   412 ;; Data sizes:     COMMON   BANK0
+   413 ;;      Params:         0       0
+   414 ;;      Locals:         0       1
+   415 ;;      Temps:          0       1
+   416 ;;      Totals:         0       2
+   417 ;;Total ram usage:        2 bytes
+   418 ;; Hardware stack levels used: 2
+   419 ;; This function calls:
+   420 ;;		Nothing
+   421 ;; This function is called by:
+   422 ;;		_main
+   423 ;; This function uses a non-reentrant model
+   424 ;;
+   425                           
+   426                           
+   427                           ;psect for function _read_encoder
+   428  03A2                     _read_encoder:
+   429                           
+   430                           ;src/encoder.c: 15:    uint8_t tmpValue = 0x00;
+   431                           
+   432                           ;incstack = 0
+   433                           ; Regs used in _read_encoder: [wreg-fsr0h+status,2+status,0+pclath]
+   434  03A2  1283               	bcf	3,5	;RP0=0, select bank0
+   435  03A3  01A1               	clrf	read_encoder@tmpValue
+   436                           
+   437                           ;src/encoder.c: 18:   if(GP5)
+   438  03A4  1A85               	btfsc	5,5	;volatile
+   439                           
+   440                           ;src/encoder.c: 19:     tmpValue |= 0x02;
+   441  03A5  14A1               	bsf	read_encoder@tmpValue,1
+   442                           
+   443                           ;src/encoder.c: 22:   if(GP4)
+   444  03A6  1A05               	btfsc	5,4	;volatile
+   445                           
+   446                           ;src/encoder.c: 23:     tmpValue |= 0x01;
+   447  03A7  1421               	bsf	read_encoder@tmpValue,0
+   448                           
+   449                           ;src/encoder.c: 25:   old_AB <<= 2;
+   450  03A8  1003               	clrc
+   451  03A9  0DA6               	rlf	_old_AB,f
+   452  03AA  1003               	clrc
+   453  03AB  0DA6               	rlf	_old_AB,f
+   454                           
+   455                           ;src/encoder.c: 26:   old_AB |= tmpValue;
+   456  03AC  0821               	movf	read_encoder@tmpValue,w
+   457  03AD  00A0               	movwf	??_read_encoder
+   458  03AE  0820               	movf	??_read_encoder,w
+   459  03AF  04A6               	iorwf	_old_AB,f
+   460                           
+   461                           ;src/encoder.c: 27:   tmpValue = (old_AB & 0x0f);
+   462  03B0  0826               	movf	_old_AB,w
+   463  03B1  390F               	andlw	15
+   464  03B2  00A0               	movwf	??_read_encoder
+   465  03B3  0820               	movf	??_read_encoder,w
+   466  03B4  00A1               	movwf	read_encoder@tmpValue
+   467                           
+   468                           ;src/encoder.c: 28:   return (enc_states[tmpValue]);
+   469  03B5  0821               	movf	read_encoder@tmpValue,w
+   470  03B6  3E01               	addlw	low ((_enc_states-__stringbase)| (0+32768))
+   471  03B7  0084               	movwf	4
+   472  03B8  2001               	fcall	stringdir
+   473  03B9  0008               	return
+   474  03BA                     __end_of_read_encoder:
+   475  005E                     btemp	set	94	;btemp
+   476  005E                     wtemp0	set	94
+   477                           
+   478                           	psect	config
+   479                           
+   480                           ;Config register CONFIG @ 0x2007
+   481                           ;	Oscillator Selection bits
+   482                           ;	FOSC = INTRCIO, INTOSC oscillator: I/O function on GP4/OSC2/CLKOUT pin, I/O function o
+      +                          n GP5/OSC1/CLKIN
+   483                           ;	Watchdog Timer Enable bit
+   484                           ;	WDTE = OFF, WDT disabled
+   485                           ;	Power-Up Timer Enable bit
+   486                           ;	PWRTE = OFF, PWRT disabled
+   487                           ;	GP3/MCLR pin function select
+   488                           ;	MCLRE = OFF, GP3/MCLR pin function is digital I/O, MCLR internally tied to VDD
+   489                           ;	Brown-out Detect Enable bit
+   490                           ;	BOREN = OFF, BOD disabled
+   491                           ;	Code Protection bit
+   492                           ;	CP = OFF, Program Memory code protection is disabled
+   493                           ;	Data Code Protection bit
+   494                           ;	CPD = OFF, Data memory code protection is disabled
+   495  2007                     	org	8199
+   496  2007  3194               	dw	12692
+
+Data Sizes:
+    Strings     0
+    Constant    16
+    Data        0
+    BSS         1
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON            0      0       0
+    BANK0            62      6       7
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    _main->_read_encoder
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 4     4      0     140
+                                              2 BANK0      4     4      0
+                       _read_encoder
+ ---------------------------------------------------------------------------------
+ (2) _read_encoder                                         2     2      0      48
+                                              0 BANK0      2     2      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _read_encoder
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            0      0       0       0        0.0%
+EEDATA              80      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+COMMON               0      0       0       1        0.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+STACK                0      0       0       2        0.0%
+BITBANK0            3E      0       0       3        0.0%
+BANK0               3E      6       7       4       11.3%
+ABS                  0      0       7       5        0.0%
+DATA                 0      0       7       6        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.32 build 20210201212658 
+Symbol Table                                                                                   Fri Jun 25 10:18:36 2021
+
+                      pc 0002                       l31 03E4                       fsr 0004  
+                    l744 03C8                      l764 03F0                      l766 03F1  
+                    _GP0 0028                      _GP1 0029                      _GP4 002C  
+                    _GP5 002D                      u117 03DC                      u127 03E9  
+                    u137 03F5                      fsr0 0004              main@counter 0025  
+                   _WPU4 04AC                     _WPU5 04AD                     _main 03BA  
+                   btemp 005E                     start 0000                    ?_main 0020  
+                  _CMCON 0019                    pclath 000A                    status 0003  
+                  wtemp0 005E          __initialization 03FB             __end_of_main 03FB  
+                 ??_main 0022                   _INTCON 000B            ?_read_encoder 0020  
+                 _old_AB 0026  __end_of__initialization 03FD           ??_read_encoder 0020  
+             __pbssBANK0 0026               __pmaintext 03BA               _enc_states 0007  
+                _TRISIO0 0428                  _TRISIO1 0429                  _TRISIO4 042C  
+                _TRISIO5 042D               __stringtab 0001                  __ptext1 03A2  
+   __end_of_read_encoder 03BA     end_of_initialization 03FD      start_initialization 03FB  
+   read_encoder@tmpValue 0021    __size_of_read_encoder 0018                ___latbits 0000  
+          __pcstackBANK0 0020             _read_encoder 03A2                __pstrings 0001  
+            __stringbase 0006       __end_of_enc_states 0017       __end_of__stringtab 0007  
+          __size_of_main 0041          main@tmpEncValue 0024                stringcode 0001  
+               stringdir 0001                 stringtab 0001  
